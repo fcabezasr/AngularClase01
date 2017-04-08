@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app> <!-- data-ng-app Cuando quieres validar un script -->
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS</title>
+
+
+	<style>
+		.tachar {
+			text-decoration: line-through;
+		}
+	</style>
+
+	<script src="angular.min.js"></script>
+</head>
+<body ng-init="tareas = [
+	'Limpiar mi cuarto',
+	'Pasear al perro',
+	'Cocinar',
+	'Stalkear a la ex'
+	]">
+
+	<!-- Example 01 -->	
+	{{ 2 + 2 }}
+	<br>
+
+	<!-- Example 02 -->	
+	<input type="text" ng-model="saludo">
+	<h1>Hola {{ saludo }}</h1>
+	<br>
+
+	<!-- Example 03 -->	
+	<h1>Tareas por hacer</h1>
+	<p ng-repeat="(key, tarea) in tareas" class="{{ check }}">
+		<input type="checkbox" ng-model="check" ng-true-value="'tachar'" id=" {{ $index }}">
+		{{ key + 1 }} - {{ tarea }}
+		<label for=" {{ $index }}"></label>
+	</p>
+
+
+	<br>
+
+	<h2>Agregar más tareas</h2>
+	<input type="text" ng-model="dato">
+	<button ng-click="tareas.push(dato); dato='' ">Agregar</button>
+
+</body>
+</html>

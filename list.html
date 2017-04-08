@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Asistentes</title>
+
+	<style>
+		.ok {
+			color: red;
+		}
+	</style>
+
+	<script src="angular.min.js"></script>
+</head>
+<body ng-init="asistentes = [
+	'Jesús Cabezas',
+	'Nila Rosario',
+	'Gabriela Cabezas',
+	'Jordan Cabezas',
+	'Cristopher Cabezas'
+]">
+	
+	<h1>ASISTENTES</h1>
+
+	<p ng-repeat="(key, asistente) in asistentes" class="{{ check }}">
+		<input type="checkbox" ng-model="check" ng-true-value="'ok'">
+		{{ key + 1 }} - {{ asistente }}
+	</p>
+
+	<button ng-click="asistentes.pop();">Eliminar</button>
+	
+	<br>
+
+	<h2>Agregar Asistentes:</h2>
+	<input type="text" ng-model="nombre">
+	<button ng-click="asistentes.push(nombre); nombre='' ">Agregar</button>
+
+
+
+	<label for="check">Click</label><input type="checkbox" id="check">
+
+</body>
+</html>
